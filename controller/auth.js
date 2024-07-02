@@ -1,11 +1,11 @@
 const fs = require('fs');
 const COS = require('cos-nodejs-sdk-v5');
-const { tencentCos } = require('config-lite')(__dirname);
+const { abCos } = require('config-lite')(__dirname);
 const BaseComponent = require('../prototype/baseComponent');
 
 var cos = new COS({
-  SecretId: tencentCos.secretId,
-  SecretKey: tencentCos.secretKey
+  SecretId: abCos.secretId,
+  SecretKey: abCos.secretKey
 });
 
 class Auth extends BaseComponent {
@@ -41,10 +41,10 @@ class Auth extends BaseComponent {
 
         const params = {
           // 存储桶名称
-          Bucket: tencentCos.bucket,
+          Bucket: abCos.bucket,
 
           // 存储桶所在地域
-          Region: tencentCos.region,
+          Region: abCos.region,
 
           // 存储在桶里的对象键
           Key: fileName,

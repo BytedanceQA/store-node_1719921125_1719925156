@@ -20,7 +20,10 @@ const idSchema = new mongoose.Schema({
   districtId: Number,
 
   // 轮播图 id
-  bannerId: Number
+  bannerId: Number,
+
+  // 新增：部门 id
+  departmentId: Number
 });
 
 const Id = mongoose.model('id', idSchema, 'id');
@@ -35,9 +38,9 @@ Id.findOne((err, data) => {
       provinceId: 0,
       cityId: 0,
       districtId: 0,
-      bannerId: 0
+      bannerId: 0,
+      departmentId: 0 // 确保新字段被正确初始化
     });
-
     newIds.save();
   }
 });

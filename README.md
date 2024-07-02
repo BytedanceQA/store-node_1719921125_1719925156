@@ -58,7 +58,7 @@ mongorestore -h 192.168.10.178:27017 -d store F:\database
 │   ├── allowApi.js           // 配置不需要 token 就可以访问的接口
 │   ├── default.js            // 默认配置
 │   ├── development.js        // 开发环境下的配置
-│   └── tencentCos.js         // 腾讯云 COSS 对象存储相关配置
+│   └── abCos.js         // 腾讯云 COSS 对象存储相关配置
 ├── controller                // 控制器
 |   |── advisory.js           // 咨询控制器
 │   ├── auth.js               // 权限认证控制器
@@ -119,7 +119,7 @@ mongorestore -h 192.168.10.178:27017 -d store F:\database
 可在 config\default.js 文件中修改数据库连接地址、端口号、默认密码、token 失效时间等配置信息
 ```
 const allowApi = require('./allowApi');
-const tencentCos = require('./tencentCos');
+const abCos = require('./abCos');
 
 module.exports = {
   port: 8002,
@@ -127,7 +127,7 @@ module.exports = {
   secretKey: 'store',
   expiresIn: '10h',
   apiList: allowApi,
-  tencentCos: tencentCos,
+  abCos: abCos,
   defaultPassword: "000000",
   session: {
     name: 'store',
@@ -160,7 +160,7 @@ module.exports = [
 ];
 ```
 
-可在 config\tencentCos.js 文件中修改腾讯云 COS 的配置信息
+可在 config\abCos.js 文件中修改腾讯云 COS 的配置信息
 ```
 module.exports = {
   secretId: 'A**********************************O',
